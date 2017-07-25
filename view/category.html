@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>category</title>
+	<!-- <link rel="stylesheet" href="../static/css/all.css">
+	<link rel="stylesheet" href="../static/css/index.css"> -->
+	<link rel="stylesheet" href="../static/css/reset.css">
+	<style type="text/css">
+		
+.u-list-2col{margin-bottom: 2%;overflow: hidden;}
+.u-list-2col li{float:left;width:49%;margin:2% 0 0 0;}
+.u-list-2col li:nth-child(2n+1){margin-right:2%;}
+
+.u-cat-item{width:100%;height:66px;padding:21px 6px 0;background-color:#eee;background-size:100%;background-position:right bottom;background-repeat:no-repeat;color:#515151;-webkit-box-sizing:border-box;}
+.u-cat-item h3{font-size:13px;line-height:16px;}
+.u-cat-item .num{font-size:11px;line-height:1em;color:#999;}
+
+.u-area{margin:0 10px;}
+
+.u-ttl{margin-top: 10px;position:relative;line-height:2.4em;border-bottom:1px solid #eee;color:#8A8D8E;-webkit-box-sizing:border-box;}
+.u-ttl h1{display:inline-block;font-size:15px;font-weight:400;}
+.u-ttl-icn *{vertical-align:middle;}
+.u-ttl-icn h1{margin-left:5px;}
+
+#root{width:100%;height:100%;}
+.Swipe{
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.Swipe > div {
+    overflow: hidden;
+    -webkit-transition: -webkit-transform .3s ease-out;
+}
+
+.Swipe > div > div {
+    float: left;
+    position: relative;
+}
+
+.Swipe_full > div,
+.Swipe_full > div > div {
+    height: 100%;
+}
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+._header{
+	height:70px;background-color: #f0f0f0;
+}
+._header a{
+	display: block;
+	height:100%;
+}
+._header img{
+	margin-top: 17px;
+	margin-left: 10px;
+}
+._header span{
+	display: inline-block;
+	font-size: 20px;
+	margin: 20px;
+}
+
+
+
+
+
+	</style>
+</head>
+<body>	
+	<div id="root">
+		<div class="Swipe Swipe_full Destructor">
+			<div style="width:100%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+				<div style="width: 100%">
+					<div class="_header">
+						<a href="../"><img src="../static/img/back.png"><span>分类</span></a>
+					</div>
+
+					<div class="Swipe Swipe_full container-scroll Destructor">
+						<div style="width: 200%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+							<div style="width: 100%" >	
+							
+								<div id="category">
+									<div class="new-page cate-page" data-track="ca">
+										<main class="u-area">
+
+											<section class="m-cat-male">
+												<div class="u-ttl u-ttl-icn"> <em class="icn-catagory1"></em>
+													<h1>网文男频</h1>
+												</div>
+												<ul class="u-list-2col">
+													<li v-for="item in male">
+														<div class="u-cat-item" style="background-image:url({{item.new_image}}!m);">
+															<h3>{{item.label}}</h3>
+															<p class="num">{{item.fiction_count}}</p>
+														</div>
+													</li>
+												</ul>
+											</section>
+
+											<section class="m-cat-female">
+												<div class="u-ttl u-ttl-icn"> <em class="icn-catagory2"></em>
+													<h1>网文女频</h1>
+												</div>
+												<ul class="u-list-2col">
+													<li v-for="item in female">
+														<div class="u-cat-item" style="background-image:url({{item.new_image}}!m);">
+															<h3>{{item.label}}</h3>
+															<p class="num">{{item.fiction_count}}</p>
+														</div>
+													</li>
+												</ul>
+											</section>
+										</main>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- 	
+<section id="category">
+<div>
+		<div class="div_header">
+			图书分类
+		</div>
+			<ul v-for='item in book' >
+				<li v-for='item in item.items'>
+					<img v-bind:src="item.cover" alt="{{ item.titles }}">
+					<p>{{ item.label }}</p>
+				</li>
+			</ul>
+	</div>
+
+	<div >
+		<div class="div_header">
+			杂志分类
+		</div>
+			<ul  v-for='item in magazine'>
+				<li >
+					<img v-bind:src="item.image" alt="{{ item.image }}">
+					<p>{{ item.label }}</p>
+				</li>
+			</ul>
+	</div> -->
+
+	<!-- <div >
+		<div class="div_header">
+			网文男频
+		</div>
+			<ul v-for='item in male'> 
+				<li >
+					<img v-bind:src="item.new_image" alt="加载失败">
+					<p>{{ item.label }}</p>
+				</li>
+			</ul>	
+	</div>
+
+	<div >
+		<div class="div_header">
+			网文女频
+		</div>
+			<ul v-for='item in female'>
+				<li >
+					<img v-bind:src="item.new_image" alt="加载失败">
+					<p>{{ item.label }}</p>
+				</li>
+			</ul>	
+	</div>
+</section> -->
+
+	
+
+	<script src='../static/script/vue.js'></script>
+	<script src='../static/script/zepto.js'></script>
+	<script src='../static/script/pages/category.js'></script>
+</body>
+</html>

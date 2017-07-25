@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rank</title>
+	<link rel="stylesheet" href="../static/css/all.css">
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/css/reset.css">
+	<style type="text/css">
+	/*	section{
+			height: 100%;
+			overflow-y: scroll;
+		}
+		div{
+			width: 400px;
+		}
+		.rank_ul{width: 20%;
+			float: left;
+			border: 1px solid blue;
+		}
+		.rank_info{width: 80%;
+			
+		}*/
+
+.original-rank-list__item{
+    padding:12px 0 6px 20px;
+    border-bottom:1px solid #EEE;
+    overflow:hidden;
+}
+.original-rank-list__img{
+    width:90px;
+    height:90px;
+    float:left;
+}
+.original-rank-list__content{
+    line-height:26px;
+    font-size:14px;
+    margin-left:108px;
+    margin-top:5px;
+    white-space:nowrap; 
+}
+.original-rank-list__page{
+
+overflow:hidden;
+text-overflow:ellipsis;white-space: nowrap;
+}
+.original-rank-list__num{
+margin-right:7px;
+color:#777;
+}
+
+/*--------------------------------------*/
+#rank{
+	overflow-y: scroll;height: 100%;
+}
+
+._header{
+	height:70px;background-color: #f0f0f0;
+}
+._header a{
+	display: block;
+	height:100%;
+}
+._header img{
+	margin-top: 17px;
+	margin-left: 10px;
+}
+._header span{
+	display: inline-block;
+	font-size: 20px;
+	margin: 20px;
+}
+
+	</style>
+</head>
+<body>
+<div id="root">
+	<div class="Swipe Swipe_full Destructor">
+		<div style="width:100%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+			<div style="width: 100%">
+					<div class="_header">
+						<a href="../"><img src="../static/img/back.png"><span>排行</span></a>
+					</div>
+						<div class="Swipe Swipe_full container-scroll Destructor">
+							<div style="width: 200%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+								<div style="width: 100%" >
+									<div id="rank">
+										<ul class="original-rank-list">
+											<li class="original-rank-list__item" v-if="$index>18" v-for="item in items">
+												<img v-bind:src="item.cover" class="original-rank-list__img">
+												<div class="original-rank-list__content">
+													<p class="original-rank-list__page" v-for="book in item.description">
+														<span class="original-rank-list__num">{{ $index + 1}}</span>
+																					{{ book }}
+													</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+			</div>		
+		</div>
+	</div>
+</div>
+	<!-- <section id="rank">
+		<ul class="list-h5">
+			<li v-for="item in items" v-if='item.id>19'>
+				<div class="book-h5">
+					<div class="book-h5__cover">
+					<img v-bind:src="item.cover" alt="item.title">
+					</div>
+					<div class="book-h5__info" v-for='item in item.description'>
+						<p><span>{{ $index + 1}}</span>{{ item }}</p>
+					</div>
+				</div>
+			</li>
+		</ul>												
+	</section> -->
+
+	<script src='../static/script/vue.js'></script>
+	<script src='../static/script/zepto.js'></script>
+	<script src='../static/script/pages/rank.js'></script>
+</body>
+</html>

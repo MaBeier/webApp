@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>female</title>
+	<!-- <link rel="stylesheet" href="../static/css/all.css">
+	<link rel="stylesheet" href="../static/css/index.css"> -->
+	<link rel="stylesheet" href="../static/css/reset.css">
+	<style type="text/css">
+
+.channel-group {
+    position: relative;
+}
+.channel-group__header {
+    position: relative;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    border-left: 6px solid #ffab18;
+}
+.channel-group__title {
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+}
+
+.channel-group__title_left { text-align: left; }
+
+
+.book-list>li {cursor: pointer;}
+.book-list li>.u-book{padding: 13px 14px;}
+.book-list li{border-bottom:1px solid #f0f0f0;}
+.book-list li:last-child{border:none;}
+
+
+
+.u-book { position : relative; overflow: hidden;}
+.u-book .cnt:after{clear:both;content:'.';display:block;height:0;overflow:hidden;visibility:hidden;}
+.u-book .book-cover{float: left;margin-right: 10px;}
+.u-book .info{padding-top: 1.2rem;}
+.u-book .title{margin-bottom: 4px;font-size: 16px;font-weight: 400;color: #333;}
+.u-book .summary{margin: 12px 0 4px;font-size: 13px;line-height: 1.6em;color: #888;overflow: hidden;text-overflow: ellipsis;height: 3.2em;display: -webkit-box;-webkit-line-clamp: 2;   -webkit-box-orient: vertical;}
+.u-book .book-tag{float:right;border: 1px solid #ddd;margin: .2rem -3px 0 0;border-radius: 3px;line-height: 1;padding: 2px;-webkit-transform: scale(.8);overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 6em;}
+
+
+
+.book-cover{position: relative;width: 8.5rem;height: 11.3rem; background-color: #eeece9;box-shadow: 0px 6px 5px -3px #aaa;border: 1px solid #f0f0f0;border-bottom: none; overflow: hidden;}
+.book-cover img{width: 100%;height: 100%;}
+
+.single-line{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+._header{
+	height:70px;background-color: #f0f0f0;
+}
+._header a{
+	display: block;
+	height:100%;
+}
+._header img{
+	margin-top: 17px;
+	margin-left: 10px;
+}
+._header span{
+	display: inline-block;
+	font-size: 20px;
+	margin: 20px;
+}
+
+	</style>
+</head>
+<body>
+<div id="root">
+	<div class="Swipe Swipe_full Destructor">
+		<div style="width:100%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+			<div style="width: 100%">
+				<div class="_header">
+					<a href="../"><img src="../static/img/back.png"><span>女生频道</span></a>
+				</div>
+
+					<div class="Swipe Swipe_full container-scroll Destructor">
+						<div style="width: 200%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+							<div style="width: 100%" >
+								<div class="new-page channel-page" id="channel-h5__female">
+									<section class="channel-group main-card" v-for="section in items">
+
+										<div class="channel-group__header">
+											<h2 class="channel-group__title channel-group__title_left">{{section.ad_name}}
+											</h2>
+										</div>
+
+										<ul class="book-list">
+											<li v-for="book in section.data.data">
+												<div class="u-book">
+													<div class="cnt">
+														<div class="book-cover">
+															<img alt="{{ book.title }}" v-bind:src="book.cover">
+															<div class="u-tagRT"></div>
+														</div>
+														<div class="info">
+															<h3 class="title single-line">{{ book.title }}</h3>
+															<p class="summary">{{ book.summary }}</p>
+															<div class="wrap">
+																<div class="book-tag" v-for="tag in book.tags">{{ tag }}</div>
+
+																	<p class="author single-line">
+																		<span class="author">{{ book.authors }}</span>
+																	</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</section>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<!-- 	<div>
+	</div>
+	<section class="channel-h5" id="channel-h5__female">
+		<div class="channel-h5__header">
+			<p class="channel-h5__title">
+				最受关注
+			</p>
+		</div>
+			<ul class="list-h5">
+				<li v-for="item in attention">
+					<div class="book-h5">
+						<div class="book-h5__cover">
+						<img v-bind:src="item.cover" alt="{{ item.title }}">
+						</div>
+						<div class="book-h5__info">
+							<p class="book-h5__title">{{ item.title }}</p>
+							<p class="book-h5__summary">{{ item.summary }}</p>
+							<p class="book-h5__author">{{ item.authors }}</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		<div class="channel-h5__header">
+			<p class="channel-h5__title">
+				主编推荐
+			</p>
+		</div>
+		<ul class="list-h5">
+			<li v-for="item in recommadation">
+				<div class="book-h5">
+					<div class="book-h5__cover">
+					<img v-bind:src="item.cover" alt="item.title">
+					</div>
+					<div class="book-h5__info">
+						<p class="book-h5__title">{{ item.title }}</p>
+						<p class="book-h5__summary">{{ item.summary }}</p>
+						<p class="book-h5__author">{{ item.authors }}</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+
+		<div class="channel-h5__header">
+			<p class="channel-h5__title">
+				新书入库
+			</p>
+		</div>
+		<ul class="list-h5">
+			<li v-for="item in new">
+				<div class="book-h5">
+					<div class="book-h5__cover">
+					<img v-bind:src="item.cover" alt="{{ item.title }}">
+					</div>
+					<div class="book-h5__info">
+						<p class="book-h5__title">{{ item.title }}</p>
+						<p class="book-h5__summary">{{ item.summary }}</p>
+						<p class="book-h5__author">{{ item.authors }}</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+
+		<div class="channel-h5__header">
+			<p class="channel-h5__title">
+				完结好书
+			</p>
+		</div>
+		<ul class="list-h5">
+			<li v-for="item in finish">
+				<div class="book-h5">
+					<div class="book-h5__cover">
+					<img v-bind:src="item.cover" alt="{{item.title}}">
+					</div>
+					<div class="book-h5__info">
+						<p class="book-h5__title">{{item.title}}</p>
+						<p class="book-h5__summary">{{item.summary}}</p>
+						<p class="book-h5__author">{{item.authors}}</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section> -->
+	<script src='../static/script/vue.js'></script>
+	<script src='../static/script/zepto.js'></script>
+	<script src='../static/script/pages/female.js'></script>
+</body>
+</html>
